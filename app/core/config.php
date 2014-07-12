@@ -8,11 +8,11 @@ date_default_timezone_set('America/Montreal');
 
 //site address
 
-define('P_REP_NAME', '');
-define('SERV_NAME', 'http://localhost/');
-define('DIR','http://'.P_REP_NAME.'/'.P_REP_NAME.'/');
-define('APP_REP','http://'.P_REP_NAME.'/'.P_REP_NAME.'/app/');
-define('TEMPLATES_REP','http://'.P_REP_NAME.'/'.P_REP_NAME.'/app/templates/');
+define('P_REP_NAME', 'G-Rest');
+define('SERV_NAME', 'http://localhost');
+define('DIR',SERV_NAME.'/'.P_REP_NAME.'/');
+define('APP_REP',SERV_NAME.'/'.P_REP_NAME.'/app/');
+define('TEMPLATES_REP',SERV_NAME.'/'.P_REP_NAME.'/app/templates/');
 
 //database details ONLY NEEDED IF USING A DATABASE
 define('DB_TYPE','mysql');
