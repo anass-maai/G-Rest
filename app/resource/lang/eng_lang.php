@@ -19,13 +19,30 @@ define('FO_INDEX_BT_CANCEL', 'Cancel');
 
 define('FO_INDEX_NEW_CUSTOMER', 'New coustomer!'); 
 
+
+//------- BTs ----------------------------------------------
 define('BT_VOID', 'Reset'); 
 define('BT_SUBMIT', 'Save');
-define('BT_UPDATE', 'Update'); 
+define('BT_UPDATE', 'Update');
+define('BT_DELETE', 'Delete');
+//----------------------------------------------------------
 
 define('CREAT_ACCOUNT_MSG', 'New to our site?<br />
         Register and enjoy the best dishes in the city!!');
-define('NEWACCOUNT', 'Creer un compte');
+define('NEWACCOUNT', 'Creat an account');
+
+//----------------------------------------------------------
+//General
+//----------------------------------------------------------
+define('GENERAL_List_RESTAURANTS', 'Restaurants list');
+define('GENERAL_List_MENU', 'Menus list');
+//--------- TAB Menu ----------
+define('TAB_LIST_RESTO_NAME', 'Name');
+define('TAB_LIST_RESTO_DESCRIPTION', 'Description');
+define('TAB_LIST_RESTO_SPECIALITY', 'Speciality');
+define('TAB_LIST_RESTO_ADDRESS', 'Address');
+define('TAB_LIST_RESTO_PHONE', 'Phone');
+define('TAB_LIST_RESTO_RESTORATEUR', 'Restaurateur');
 
  //---------------------------------------------------------
  // BackOffice_index
@@ -33,25 +50,16 @@ define('NEWACCOUNT', 'Creer un compte');
 
 define('BACKOFFICE_INDEX_INPUT_LOGIN', 'Login');
 define('BACKOFFICE_INDEX_INPUT_PASSWORD', 'Password');
-
 define('BACKOFFICE_INDEX_BT_CONNECT', 'Connect');
 define('BACKOFFICE_INDEX_BT_CANCEL', 'Cancel');
-
 define('BACKOFFICE_INDEX_GO_RESET_PASSWORD', 'Lost your password??'); 
-
-
-
 
  //---------------------------------------------------------
  // Vertical Menu 
  //--------------------------------------------------------- 
 define('NAV_List_RESTAURANTS', 'Our restaurants');
-define('NAV_List_RESTAURANTS', 'Our menus');
-
+define('NAV_List_MENUS', 'Our menus');
 define('NAV_List_LOGIN', 'Login');
-
-
-
  //---------------------------------------------------------
  // BackOffice_Menu
  //--------------------------------------------------------- 
@@ -98,7 +106,16 @@ define('FORM_INPUT_PH_BIRTHDAY', '');
 
 define('FORM_INPUT_RESTO_NAME', 'Name');
 define('FORM_INPUT_PH_RESTO_NAME', '');
-define('FORM_INPUT_RESTO_DISCRIPTION', 'Discription');
-define('FORM_INPUT_PH_RESTO_DISCRIPTION', '');
+define('FORM_INPUT_RESTO_DISCRIPTION_FR', 'Frensh Discription');
+define('FORM_INPUT_PH_RESTO_DISCRIPTION_FR', '');
+define('FORM_INPUT_RESTO_DISCRIPTION_EN', 'English Discription');
+define('FORM_INPUT_PH_RESTO_DISCRIPTION_EN', '');
 define('FORM_INPUT_RESTO_SPECIALITE', 'Speciality');
 define('FORM_INPUT_PH_RESTO_SPECIALITE', '');
+
+
+
+//---------------------------------------------
+// err messages
+//---------------------------------------------
+define('ERR_MISSING_RESTEURATEUR', 'A restaurateur must be assigned to restaurant');

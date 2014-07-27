@@ -26,29 +26,38 @@ class User_model extends Model {
         return $data[0]->role;
     }
     
-    public function setUser($user) {
-        
+    public function insertUser($user) {
+
         $user['mdp'] = hash('sha256', $user['mdp']); // On hash le mot de passe en sha256
         $this->_db->insert(PREFIX.'utilisateur',$user);
-        
-        
         return $this->_db->lastInsertId('id');
-        //echo $this->_db->lastInsertId('id');
+
     }
     
     public function getUserById($id){
         return $this->_db->select("select * from " . PREFIX . $this->userDbTab ." where id = :id", array(':id' => $id)); 
     }
-    
+    public function getUsersByRang($rang){
+        return $this->_db->select("select * from " . PREFIX . $this->userDbTab ." where rang = :rang", array(':rang' => $rang));
+    }
     public function getUserByEmail($email){
-        return $this->_db->select("select * from " . PREFIX . $this->userDbTab ." where email = :email", array(':email' => $email)); 
+        return $this->_db->select("select * from " . PREFIX . $this->userDbTab ." where email = :email", array(':email' => $email));
     }
     public function update_user($data, $where){
-        
+        echo ('<BR>----- req------<BR>
+                    nom : '          .$data['nom'].'<br>'
+            .'prenom : '        .$data['prenom'].'<br>'
+            .'mdp : '           .$data['mdp'].'<br>'
+            .'email : '         .$data['email'].'<br>'
+            .'telephone : '     .$data['telephone'].'<br>'
+            .'adresse : '       .$data['adresse'].'<br>'
+            .'datenaissance : ' .$data['datenaissance']
+            .'where id : ' . $where['id']);
+//--------
         $data['mdp'] = hash('sha256', $data['mdp']); // On hash le mot de passe en sha256
         $this->_db->update(PREFIX.$this->userDbTab,$data, $where);
-    
-        
+
+//--------
     }
     
 }

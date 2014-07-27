@@ -14,7 +14,7 @@
         <label class="col-sm-4 col-md-4 control-label" for="telephone"><?= FORM_INPUT_PHONE ?></label>      <div ><?= $user[0]->telephone ?></div>
     </div>      
     <div>
-        <a class="btn dropdown-toggle btn-info" href="<?= DIR ?>user/update"><?= BT_UPDATE ?></a>
+        <a class="btn dropdown-toggle btn-info" href="<?= DIR ?>user/update/<?= $user[0]->id ?>"><?= BT_UPDATE ?></a>
     </div>
 </div>
 

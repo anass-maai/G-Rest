@@ -9,26 +9,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<?= DIR ?>admin/main">Gestion restaurant</a>
+      <a class="navbar-brand" href="<?= DIR ?>">Gestion restaurant</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#"><?= BO_NAV_HOME ?></a></li>
-        
-        <li class="dropdown">
-          <a href="<?= DIR ?>resrtorant/list"><?= BO_NAV_List_RESTAURANTS ?></a>
-        </li>
-        
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= BO_NAV_MENU ?> <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="<?= DIR ?>restaurateur/newMenu"><?= BO_NAV_ADD_MENU ?></a></li>
-            <li><a href="<?= DIR ?>restaurateur/menuList"><?= BO_NAV_List_MENU ?></a></li>
+        <li class="active"><a href="<?= DIR ?>"><?= BO_NAV_HOME ?></a></li>
+        <li><a href="<?= DIR ?>resrtorant/list"><?= FO_MAKE_AN_ORDER ?></a></li>
+
           </ul>
         </li>
-      </ul>
+        -->
+        
+
       
       <ul class="nav navbar-nav navbar-right">
         
@@ -41,7 +35,7 @@
               <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#"><?=BO_NAV_MY_ACCOUNT_VIEW ?></a></li>
+            <li><a href="<?= DIR ?>user/info"><?=BO_NAV_MY_ACCOUNT_VIEW ?></a></li>
             <li class="divider"></li>
             <li><a href="<?= DIR ?>logout"><?=BO_NAV_MY_ACCOUNT_LOGOUT ?></a></li>
           </ul>

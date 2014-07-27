@@ -23,17 +23,8 @@ class Admin extends Controller {
     public function checkEmail($email){
         echo $this->_adminModel->emailExist($email);
     }
-    
-    public function menuAdmin(){
-        // admin main page
-        echo"<p>Wellcom Admin</p>";
-    }
-        
-    public function emailerr($email){
-        echo '<p class="bg-warning">'. LOGIN_ERROR_EMAIL_DONT_EXIST .'</p>';
-    }
-    
-    public function newRestaurateur(){
+
+    public function newRestaurateur($error=null){
         $data['loginError']=$error;
         $data['Title']=NEW_RESTORATEUR_FORM;
         $this->view->rendertemplate('header',$data);
@@ -56,8 +47,7 @@ class Admin extends Controller {
             $password=$_POST['password'];
             $adresse=$_POST['adresse'];
             $telephone=$_POST['telephone'];
-          
-//echo ('--'.$nom.'--'.$prenom.'--'.$datenaissance.'--'.$email.'--'.$password.'--'.$adresse.'--'.$telephone);
+
             $this->_adminModel= $this->loadModel('User_model');            
             $postdata = array(               
                 'nom'           => $nom,
@@ -71,10 +61,10 @@ class Admin extends Controller {
                 'adresse'       => $adresse   
             );
     
-            $userid=$this->_adminModel->setUser($postdata); 
+            $userid=$this->_adminModel->insertUser($postdata);
             
             if ($userid!=null){
-                url::redirect('admin/addRestaurateur/info/'.$userid);
+                url::redirect('admin/addRestaurateur/info/id/'.$userid);
             }else{
                 $errMsg ='<p class="bg-warning">'. MISSING_DATA .'</p>';     
                 $this->index($errMsg);
@@ -86,12 +76,83 @@ class Admin extends Controller {
     public function displayListRestaurateurs() {
         
     }
-    
-    public function addResrtorant() {
-        
+
+
+    public function newResrtorant($error=null) {
+
+        $this->_adminModel= $this->loadModel('User_model');
+        $data['RestaurateurList']= $this->_adminModel->getUsersByRang(2);
+        $data['Error']=$error;
+        $data['Title']=NEW_RESTORANT_FORM;
+        $this->view->rendertemplate('header',$data);
+        $this->view->render('bo/admin/menu_admin',$data);
+        $this->view->render('bo/restaurant/frm_add_restaurant',$data);
+        $this->view->rendertemplate('footer',$data);
     }
 
-    public function displayListResrtorants() {
-        
+    public function addResrtorant(){
+        if(isset($_POST['submit'])){
+            $nom=$_POST['nom'];
+            $description_en=$_POST['description_en'];
+            $description_fr=$_POST['description_fr'];
+            $specialite=$_POST['specialite'];
+            $adresse = $_POST['adresse'];
+            $telephone = $_POST['telephone'];
+            $idrestaurateur = $_POST['restaurateur'];
+
+
+       //TODO: si restorateur n'est pa entrer, ne rien faire + afficher Message erreur
+            if ($idrestaurateur == null ){
+
+                $errMsg="<div class='alert alert-danger' role='alert'><p >".ERR_MISSING_RESTEURATEUR."</p></div>";
+                $this->newResrtorant($errMsg);
+            }
+            else{
+                $restau= $this->loadModel('Restaurant_Model');
+                $postdata = array(
+                    'nom'               => $nom,
+                    'en_description'    => $description_en,
+                    'fr_description'    => $description_fr,
+                    'specialite'        => $specialite,
+                    'idrestaurant'      => null,
+                    'telephone'         => $telephone,
+                    'adresse'           => $adresse,
+                    'idrestaurateur'    => $idrestaurateur
+                );
+
+                echo("$nom<br> $idrestaurateur <br>");
+
+                $restauId=$restau->insertNew($postdata);
+
+                if ($restauId!=null){
+                    url::redirect('admin/restaurants/List');
+                   //todo: AJOUTER LE SUPORT D'AFFICHAGE DE MENU EN TEMBNAILE
+
+                }else{
+                    $errMsg ='<p class="bg-warning">'. MISSING_DATA .'</p>';
+                    $this->index($errMsg);
+                }
+            }
+        }
     }
+
+    public function displayListResrtorants($p=0) {
+
+        $restau= $this->loadModel('Restaurant_Model');
+        // setting up the pagination :
+        $url=DIR.'admin/restaurants/List';
+        $nbr_Rows_To_Display='5';
+        $pages = new an_paginator($url,$nbr_Rows_To_Display,$p);
+        $pages->set_total( count($restau->get_all()));
+
+        $data['listResto'] = $restau->get_Restaurants_List( $pages->get_limit() );
+        $data['page_links'] = $pages->page_links();
+
+        $data['Title']= RESTORANT_LIST;
+        $this->view->rendertemplate('header',$data);
+        $this->view->render('bo/admin/menu_admin',$data);
+        $this->view->render('bo/restaurant/view_restorants_list',$data);
+        $this->view->rendertemplate('footer',$data);
+
+       }
 }

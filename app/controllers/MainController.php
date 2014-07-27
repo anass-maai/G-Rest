@@ -25,7 +25,7 @@ class MainController extends Controller {
         $data['loginError']=$error;
         $data['Title']=MAIN_LOGIN;
         $this->view->rendertemplate('header',$data);
-        $this->view->render('fo/general/menu_general',$data);
+       //$this->view->render('fo/general/menu_general',$data);
         $this->view->render('loginPg',$data);
         $this->view->rendertemplate('footer',$data);
     }

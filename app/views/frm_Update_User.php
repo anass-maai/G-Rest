@@ -11,16 +11,16 @@
 ?>
 
 <div style="max-width: 600px; padding: auto; margin: auto;">
-    <form role="form" class="form-horizontal" action="<?= DIR ?>user/update"
-          method="POST">
+
+    <form  role="form" class="form-horizontal" action="<?= DIR ?>user/update"  method="POST">
         <fieldset>
 
             <!-- Form Name -->
-            <legend><?= FORM_NAME ?></legend>
 
+            <legend><?= $data['Title'] ?></legend>
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-sm-4 control-label" for="nom"><?= FORM_INPUT_FIRSTNAME ?></label>
+                <label class="col-sm-4 control-label" for="nom"><?=FORM_INPUT_LASTNAME  ?></label>
                 <div class="col-sm-8">
                     <input id="nom" name="nom" placeholder="<?= $user[0]->prenom ?>"
                            class="input-xlarge form-control" required="" type="text" value="<?=  $user[0]->prenom  ?>">
@@ -28,7 +28,7 @@
             </div>
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-sm-4 control-label" for="prenom"><?= FORM_INPUT_LASTNAME ?></label>
+                <label class="col-sm-4 control-label" for="prenom"><?= FORM_INPUT_FIRSTNAME ?></label>
                 <div class="col-sm-8">
                     <input id="prenom" name="prenom" placeholder="<?= $user[0]->nom ?>"
                            class="input-xlarge form-control" required="" type="text" value="<?= $user[0]->nom ?>">
@@ -38,7 +38,7 @@
             <div class="form-group">
                 <label class="col-sm-4 control-label" for="datenaissance"><?= FORM_INPUT_BIRTHDAY ?></label>
                 <div class="col-sm-8">
-                    <input id="datenaissance" name="datenaissance" placeholder="<?= $user[0]->datenaissance ?>"
+                   <input id="datepicker" name="datenaissance" placeholder="<?= $user[0]->datenaissance ?>"
                            class="input-xlarge form-control" required="" type="text" value="<?= $user[0]->datenaissance ?>">
                 </div>
             </div>  
@@ -53,7 +53,7 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-sm-4 control-label" for="password"><?= FORM_INPUT_PASSWORD ?></label>
+                <label class="col-sm-4 control-label" for="password" ><?= FORM_INPUT_PASSWORD ?></label>
                 <div class="col-sm-8">
                     <input id="password" name="password" placeholder="*******"
                            class="input-xlarge form-control" required="" type="text">
@@ -62,7 +62,7 @@
 
             <!-- Text input-->  
             <div class="form-group">
-                <label class="col-sm-4 control-label" for="confirm_pass"><?= FORM_INPUT_PASSWORD_CONFIRM ?></label>
+                <label class="col-sm-4 control-label" for="confirm_pass" ><?= FORM_INPUT_PASSWORD_CONFIRM ?></label>
                 <div class="col-sm-8">
                     <input id="confirm_pass" name="confirm_pass" placeholder="*******"
                            class="input-xlarge form-control" required="" type="text">

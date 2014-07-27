@@ -4,21 +4,21 @@
         <fieldset>
 
             <!-- Form Name -->
-            <legend><?= FORM_NAME ?></legend>
+            <legend><?= $data['Title'] ?></legend>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-sm-4 control-label" for="nom"><?= FORM_INPUT_FIRSTNAME ?></label>
+                <label class="col-sm-4 control-label" for="nom"><?= FORM_INPUT_LASTNAME ?></label>
                 <div class="col-sm-8">
-                    <input id="nom" name="nom" placeholder="<?= FORM_INPUT_PH_FIRSTNAME ?>"
+                    <input id="nom" name="nom" placeholder="<?= FORM_INPUT_PH_LASTNAME  ?>"
                            class="input-xlarge form-control" required="" type="text">
                 </div>
             </div>
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-sm-4 control-label" for="prenom"><?= FORM_INPUT_LASTNAME ?></label>
+                <label class="col-sm-4 control-label" for="prenom"><?=FORM_INPUT_FIRSTNAME  ?></label>
                 <div class="col-sm-8">
-                    <input id="prenom" name="prenom" placeholder="<?= FORM_INPUT_PH_LASTNAME ?>"
+                    <input id="prenom" name="prenom" placeholder="<?=FORM_INPUT_PH_FIRSTNAME  ?>"
                            class="input-xlarge form-control" required="" type="text">
                 </div>
             </div>
@@ -26,7 +26,8 @@
             <div class="form-group">
                 <label class="col-sm-4 control-label" for="datenaissance"><?= FORM_INPUT_BIRTHDAY ?></label>
                 <div class="col-sm-8">
-                    <input id="datenaissance" name="datenaissance" placeholder="<?= FORM_INPUT_PH_BIRTHDAY ?>"
+
+                    <input id="datepicker" name="datenaissance" placeholder="<?= FORM_INPUT_PH_BIRTHDAY ?>"
                            class="input-xlarge form-control" required="" type="text">
                 </div>
             </div>  

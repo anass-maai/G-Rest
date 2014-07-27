@@ -21,7 +21,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= BO_NAV_RESTAURANT ?><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="<?= DIR ?>admin/newResrtorant"><?= BO_NAV_ADD_RESTAURANT ?></a></li>
-            <li><a href="<?= DIR ?>resrtorant/list"><?= BO_NAV_List_RESTAURANTS ?></a></li>
+            <li><a href="<?= DIR ?>admin/restaurants/List"><?= BO_NAV_List_RESTAURANTS ?></a></li>
             <!-- <li class="divider"></li> -->
           </ul>
         </li>
@@ -30,7 +30,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= BO_NAV_RESTAURATEUR ?> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="<?= DIR ?>admin/newRestaurateur"><?= BO_NAV_ADD_RESTAURATEUR ?></a></li>
-            <li><a href="<?= DIR ?>restaurateur/resrtorantsList"><?= BO_NAV_List_RESTAURATEUR ?></a></li>
+            <li><a href="<?= DIR ?>restaurateur/restaurateurList"><?= BO_NAV_List_RESTAURATEUR ?></a></li>
           </ul>
         </li>
       </ul>

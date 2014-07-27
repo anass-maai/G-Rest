@@ -6,7 +6,21 @@
 define('WELCOME_TITLE', 'Restorant Management'); 
 define('WELCOME_MSG', 'Bienvenue !'); 
 define('GO_FRONTOFFICE', 'Site public'); 
-define('GO_BACKOFFICE', 'Administration'); 
+define('GO_BACKOFFICE', 'Administration');
+
+//----------------------------------------------------------
+//General
+//----------------------------------------------------------
+define('GENERAL_List_RESTAURATEUR', 'List restaurants');
+define('GENERAL_List_MENU', 'List menus');
+
+//--------- TAB Menu ----------
+define('TAB_LIST_RESTO_NAME', 'Nom du restaurant');
+define('TAB_LIST_RESTO_DESCRIPTION', 'Description');
+define('TAB_LIST_RESTO_SPECIALITY', 'Spécialité');
+define('TAB_LIST_RESTO_ADDRESS', 'Adresse');
+define('TAB_LIST_RESTO_PHONE', 'Téléphone');
+define('TAB_LIST_RESTO_RESTORATEUR', 'Restaurateur');
 
 /* -- FO -- */
 
@@ -23,7 +37,8 @@ define('FO_INDEX_NEW_CUSTOMER', 'Nouveau client!');
 
 define('BT_VOID', 'Vider'); 
 define('BT_SUBMIT', 'Enregistrer'); 
-define('BT_UPDATE', 'Modifier'); 
+define('BT_UPDATE', 'Modifier');
+define('BT_DELETE', 'Supprimer');
 
 define('CREAT_ACCOUNT_MSG', 'Nouveau sur notre site?? <br /> '
  . 'Inscrivez-vous et déguster les meilleurs plats de la ville!!');
@@ -99,9 +114,15 @@ define('FORM_INPUT_PH_BIRTHDAY', '');
 
 define('FORM_INPUT_RESTO_NAME', 'Nom');
 define('FORM_INPUT_PH_RESTO_NAME', '');
-define('FORM_INPUT_RESTO_DISCRIPTION', 'Discription');
-define('FORM_INPUT_PH_RESTO_DISCRIPTION', '');
+define('FORM_INPUT_RESTO_DISCRIPTION_FR', 'Discription en francais');
+define('FORM_INPUT_PH_RESTO_DISCRIPTION_FR', '');
+define('FORM_INPUT_RESTO_DISCRIPTION_EN', 'Discription en anglais');
+define('FORM_INPUT_PH_RESTO_DISCRIPTION_EN', '');
 define('FORM_INPUT_RESTO_SPECIALITE', 'Specialité');
 define('FORM_INPUT_PH_RESTO_SPECIALITE', '');
 
 
+//---------------------------------------------
+// err messages
+//---------------------------------------------
+define('ERR_MISSING_RESTEURATEUR', 'Un restaurateur doit être assigné au restaurant');

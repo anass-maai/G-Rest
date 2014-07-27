@@ -1,6 +1,6 @@
-
+<?= $data["Error"] ?>
 <div style="max-width: 600px; padding: auto; margin: auto;">
-    <form role="form" class="form-horizontal" action="<?= DIR ?>user/addUser"
+    <form role="form" class="form-horizontal" action="<?= DIR ?>admin/addResrtorant"
           method="POST">
         <fieldset>
 
@@ -17,10 +17,18 @@
             </div>
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-sm-4 control-label" for="description"><?= FORM_INPUT_RESTO_DISCRIPTION ?></label>
+                <label class="col-sm-4 control-label" for="description_fr"><?= FORM_INPUT_RESTO_DISCRIPTION_FR ?></label>
                 <div class="col-sm-8">
-                    <input id="description" name="description" placeholder="<?= FORM_INPUT_PH_RESTO_DISCRIPTION ?>"
-                           class="input-xlarge form-control" required="" type="text">
+                    <textarea class="form-control" rows="3" id="description_fr" name="description_fr" placeholder="<?= FORM_INPUT_PH_RESTO_DISCRIPTION_FR ?>"
+                           required="" type="text"></textarea>
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="description_en"><?= FORM_INPUT_RESTO_DISCRIPTION_EN ?></label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" rows="3" id="description_en" name="description_en" placeholder="<?= FORM_INPUT_PH_RESTO_DISCRIPTION_EN ?>"
+                           required="" type="text"></textarea>
                 </div>
             </div>
             <!-- Text input-->
@@ -50,6 +58,25 @@
                 </div>
             </div>
 
+            <!-- SELECT input-->
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="restorateur"><?= FORM_INPUT_RESTORATEUR ?></label>
+                <div class="col-sm-8">
+                <select id="restaurateur" name="restaurateur" class="form-control">
+                    <option value=''>--- SELECT_RESTORATOR_MSG ---</option>
+                <?php $restaurateurList = $data['RestaurateurList'];
+                    foreach($data['RestaurateurList'] as $Resto) {
+                        echo "<option value='$Resto->id'>$Resto->prenom $Resto->nom</option>";
+                    }
+                ?>
+                </div>
+                </div>
+                   <div class="form-group">
+                        <label class="col-sm-4 control-label" for="telephone"><?= FORM_INPUT_PHONE ?></label>
+                <div class="col-sm-8">
+            </select>
+</div>
+</div>
             <!-- Button -->
             <div class="form-group">
                 <div class="col-sm-2">
