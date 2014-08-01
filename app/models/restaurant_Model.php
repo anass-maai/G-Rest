@@ -8,15 +8,19 @@
 
 class Restaurant_Model extends Model {
 
-    private $restauDbTab    = 'restaurant' ;
-    private $userDbTab      = 'utilisateur' ;
+    private $_restauDbTab    = 'restaurant' ;
+    private $_userDbTab      = 'utilisateur' ;
 
     public function __construct() {
         parent::__construct();
     }
 
     public function get_Restaurant_By_Id($id){
-       return $this->_db->select("SELECT * FROM " . PREFIX . $this->userDbTab ." WHERE idrestaurant  = :id;", array(':id' => "$id"));
+        $req="SELECT restaurant.`idrestaurant`, restaurant.nom AS restau_name, `fr_description`, `en_description`,restaurant.idrestaurateur, restaurant.specialite, restaurant.`adresse`, restaurant.`telephone`, utilisateur.nom, utilisateur.prenom
+                FROM (" . PREFIX . "restaurant, utilisateur )
+                WHERE (utilisateur.id = restaurant.idrestaurateur and restaurant.idrestaurant  = $id)";
+       // echo $req;
+       return $this->_db->select($req); //, array(':id' => "$id"));
     }
     public function get_all_count(){
         return $this->_db->select("SELECT count( * )FROM  restaurant " );
@@ -26,7 +30,7 @@ class Restaurant_Model extends Model {
     }
 
     public function get_Restaurants_List($limit){
-        $req="SELECT `idrestaurant`, restaurant.nom AS restau_name, `fr_description`, `en_description`, restaurant.`adresse`, restaurant.`telephone`, utilisateur.nom, utilisateur.prenom  FROM (" . PREFIX . "restaurant, utilisateur )
+        $req="SELECT `idrestaurant`, restaurant.nom AS restau_name, `fr_description`, `en_description`,restaurant.idrestaurateur, restaurant.specialite, restaurant.`adresse`, restaurant.`telephone`, utilisateur.nom, utilisateur.prenom  FROM (" . PREFIX . "restaurant, utilisateur )
                 WHERE ( utilisateur.id = restaurant.idrestaurateur) $limit" ;
         return $this->_db->select($req);
     }
@@ -36,9 +40,23 @@ class Restaurant_Model extends Model {
         return $this->_db->lastInsertId('id');
     }
 
-
-    public function set_Restaurant($id){
-
+    public function set_Restaurant($data,$where){
+        $this->_db->update(PREFIX.$this->_restauDbTab,$data, $where);
     }
 
+    public function delete_Restaurant($where){
+        $this->_db->delete(PREFIX.$this->_restauDbTab, $where);
+    }
+
+    public function get_Restaurants_By_Restaurateur($id){
+        $req="SELECT * FROM (" . PREFIX . "restaurant )
+                WHERE ( restaurant.idrestaurateur = $id)" ;
+        return $this->_db->select($req);
+    }
+
+    public function get_Restaurants_List_By_Restaurateur($id,$limit){
+        $req="SELECT * FROM (" . PREFIX . "restaurant )
+                WHERE ( restaurant.idrestaurateur = $id) $limit" ;
+        return $this->_db->select($req);
+    }
 }
