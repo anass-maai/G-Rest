@@ -1,10 +1,54 @@
 <?php
  //---------------------------------------------------------
- // Welcome
+ // GENERAL
  //--------------------------------------------------------- 
 define('WELCOME_MSG', 'Welcome !'); 
 define('GO_FRONTOFFICE', 'Front Office'); 
-define('GO_BACKOFFICE', 'Back Office'); 
+define('GO_BACKOFFICE', 'Back Office');
+
+define('ITEMS_NUMBER', 'number of itemes ');
+define('BT_SHOW_ITEMS', 'Show Itemes ');
+
+
+define('NEXT', 'Next');
+define('PREVIOUS', 'Previous');
+
+//--------- TAB Menu ----------
+define('TAB_LIST_RESTO_NAME', 'Nom du restaurant');
+define('TAB_LIST_RESTO_DESCRIPTION', 'Description');
+define('TAB_LIST_RESTO_SPECIALITY', 'Spécialité');
+define('TAB_LIST_RESTO_ADDRESS', 'Adresse');
+define('TAB_LIST_RESTO_PHONE', 'Téléphone');
+define('TAB_LIST_RESTO_RESTORATEUR', 'Restaurateur');
+
+/* -- FO -- */
+
+//---------------------------------------------------------
+// Login Form
+//---------------------------------------------------------
+
+//define('FO_INDEX_WELCOME_MSG', 'Bienvenue sur le siteweb de Mon resteau express!! !');
+define('FO_INDEX_INPUT_LOGIN', 'E-mail');
+define('FO_INDEX_INPUT_PASSWORD', 'Password');
+define('FO_INDEX_BT_CONNECT', 'connect');
+define('FO_INDEX_BT_CANCEL', 'cancel');
+define('FO_INDEX_NEW_CUSTOMER', 'New user!');
+
+
+
+
+define('CREAT_ACCOUNT_MSG', 'Nouveau sur notre site?? <br /> '
+    . 'Inscrivez-vous et déguster les meilleurs plats de la ville!!');
+define('NEWACCOUNT', 'Creer un compte');
+
+//------- BTs ----------------------------------------------
+define('BT_VOID', 'Reset');
+define('BT_SUBMIT', 'Save');
+define('BT_UPDATE', 'Update');
+define('BT_DELETE', 'Delete');
+define('BT_SHOW_MENUS', 'Show menu');
+
+/* -- BO -- */
 
  //---------------------------------------------------------
  // FrontOffice_index
@@ -20,11 +64,9 @@ define('FO_INDEX_BT_CANCEL', 'Cancel');
 define('FO_INDEX_NEW_CUSTOMER', 'New coustomer!'); 
 
 
-//------- BTs ----------------------------------------------
-define('BT_VOID', 'Reset'); 
-define('BT_SUBMIT', 'Save');
-define('BT_UPDATE', 'Update');
-define('BT_DELETE', 'Delete');
+
+
+
 //----------------------------------------------------------
 
 define('CREAT_ACCOUNT_MSG', 'New to our site?<br />
@@ -113,9 +155,48 @@ define('FORM_INPUT_PH_RESTO_DISCRIPTION_EN', '');
 define('FORM_INPUT_RESTO_SPECIALITE', 'Speciality');
 define('FORM_INPUT_PH_RESTO_SPECIALITE', '');
 
+define('ADD_NEW_MENU_FOR_RESTORANT', 'Defining a new menu for ');
 
+define('FORM_INPUT_MENU_NAME_FR', 'French name ');
+define('FORM_INPUT_PH_MENU_NAME_FR', '');
+define('FORM_INPUT_MENU_NAME_EN', 'English name');
+define('FORM_INPUT_PH_MENU_NAME_EN', '');
 
+define('FORM_INPUT_PLAT_NAME_FR', 'French name ');
+define('FORM_INPUT_PH_PLAT_NAME_FR', '');
+define('FORM_INPUT_PLAT_NAME_EN', 'English name');
+define('FORM_INPUT_PH_PALT_NAME_EN', '');
+define('FORM_INPUT_PLAT_PRICE', 'Price');
+define('FORM_INPUT_PH_PALT_PRICE', '');
+define('FORM_INPUT_PLAT_DESCRIPTION_FR', 'French descreption');
+define('FORM_INPUT_PH_PALT_DESCRIPTION_FR', '');
+define('FORM_INPUT_PLAT_DESCRIPTION_EN', 'English descreption');
+define('FORM_INPUT_PH_PALT_DESCRIPTION_EN', '');
+
+define('FORM_INPUT_PLAT_NAME', 'Name');
+define('FORM_INPUT_PLAT_DESCRIPTION', 'Descreption');
+
+define('MENU_NAME', 'Menu Name');
+define('ADD_NEW_PLAT_TO_MENU', 'Add a new plate to the menu menu');
 //---------------------------------------------
 // err messages
 //---------------------------------------------
 define('ERR_MISSING_RESTEURATEUR', 'A restaurateur must be assigned to restaurant');
+define('NO_MENU_FOUND', ' This menu is under construction !!');
+define('TTC_ORDER', 'Total to pay');
+
+
+define('NEW_DELEIVER_INFORMATION', 'Delivery details');
+define('FORM_DELIVERY_DATE', 'Delivery date');
+define('FORM_DELIVERY_TIME', 'Delivery time');
+define('FORM_DELIVERY_ADDRESS', 'Delivery address');
+//-----------------------
+//      front Office
+//-----------------------
+
+define('FO_MAKE_AN_ORDER', 'Make an order');
+define('TOTAL_ORDER', 'Total');
+define('TAX_ORDER', 'Tax');
+define('TTC_ORDER', 'Total to pay');
+define('ORDER_DONE', 'your Order was processed, please take note of the Order #');
+define('BT_ORDER', 'Commander');

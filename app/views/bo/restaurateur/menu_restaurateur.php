@@ -18,13 +18,13 @@
         <li class="active"><a href="<?= DIR ?>"><?= BO_NAV_HOME ?></a></li>
         
         <li class="dropdown">
-          <a href="<?= DIR ?>resrtorant/list"><?= BO_NAV_List_RESTAURANTS ?></a>
+          <a href="<?= DIR ?>restaurateur/restaurants/List"><?= BO_NAV_List_RESTAURANTS ?></a>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= BO_NAV_MENU ?> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="<?= DIR ?>restaurateur/newMenu"><?= BO_NAV_ADD_MENU ?></a></li>
-            <li><a href="<?= DIR ?>restaurateur/menuList"><?= BO_NAV_List_MENU ?></a></li>
+            <li><a href="<?= DIR ?>restaurateur/addMenu"><?= BO_NAV_ADD_MENU ?></a></li>
+            <li><a href="<?= DIR ?>restaurateur/menu/List"><?= BO_NAV_List_MENU ?></a></li>
           </ul>
         </li>
       </ul>

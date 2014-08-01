@@ -143,84 +143,84 @@ class User extends Controller
     public function updateUser($id = null, $error = null)
     {
         $activeUser = session::get('user');
-        if ($id != null) {
-            $userToUpdate = $id;
-        } else {
-            $userToUpdate = $activeUser[0]->id;
+        $this->_adminModel = $this->loadModel('User_model');
+
+        $userToUpdate=null;
+
+
+
+
+        if ($activeUser[0]->rang==3){
+            $userToUpdate = $this->_adminModel->getUserById($id);
+        }else{
+            $userToUpdate = $activeUser;
         }
 
+        $this->_adminModel = $this->loadModel('User_model');
         if (isset($_POST['submit'])) {
-            $nom = $_POST['nom'];
-            $prenom = $_POST['prenom'];
-            $datenaissance = $_POST['datenaissance'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            $adresse = $_POST['adresse'];
-            $telephone = $_POST['telephone'];
+                $nom = $_POST['nom'];
+                $prenom = $_POST['prenom'];
+                $datenaissance = $_POST['datenaissance'];
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+                $adresse = $_POST['adresse'];
+                $telephone = $_POST['telephone'];
 
-            $this->_adminModel = $this->loadModel('User_model');
+                $postdata = array(
+                    'id' => $id,
+                    'nom' => $nom,
+                    'prenom' => $prenom,
+                    'mdp' => $password,
+                    'email' => $email,
+                    'rang' => 0,
+                    'telephone' => $telephone,
+                    'adresse' => $adresse,
+                    'datenaissance' => $datenaissance
+                );
 
-            $postdata = array(
-                'nom' => $nom,
-                'prenom' => $prenom,
-                'mdp' => $password,
-                'email' => $email,
-                'rang' => 0,
-                'telephone' => $telephone,
-                'adresse' => $adresse,
-                'datenaissance' => $datenaissance
-            );
+                $user = $this->_adminModel->getUserById($postdata['id']);
 
-            $user = $this->_adminModel->getUserByEmail($postdata['email']);
+                if ($user['rang']==3 ){
+                    $userToUpdate=$user['id'];
+                }else{
+                    $userToUpdate = SESSION::get('user');
+                }
 
-            if ($user['rang']==3 ){
-                $userToUpdate=$user['id'];
-            }else{
-                $userToUpdate = SESSION::get('user');
-            }
+                switch ($activeUser['rang']) {
+                    case 0: //coustomer
+                        $postdata['rang']=0;
+                        break;
+                    case 2: //user is restorateur
+                        $postdata['rang']=2;
+                        break;
+                    case 3: //user is the invester
+                        $postdata['rang']=$user['rang'];
+                        break;
+                }
 
-            switch ($activeUser['rang']) {
-                case 0: //coustomer
-                    $postdata['rang']=0;
-                    break;
-                case 2: //user is restorateur
-                    $postdata['rang']=2;
-                    break;
-                case 3: //user is the invester
-                    $postdata['rang']=$user['rang'];
-                    break;
-            }
-            echo ('<BR>-----------<BR>    id : '.$userToUpdate[0]->id);
+                $where = array('id' => $userToUpdate[0]->id);
+                $this->_adminModel->update_user($postdata, $where);
 
-            $where = array('id' => $userToUpdate[0]->id);
-            $this->_adminModel->update_user($postdata, $where);
+                //$user = $this->_adminModel->getUserByEmail($postdata['email']);
+                //TODO : corect the update
+    /*
+                session::set('user', $user);
 
-            $user = $this->_adminModel->getUserByEmail($postdata['email']);
-            echo ('<BR>-----------<BR>
-                    nom : '         .$user[0]->nom.'<br>'
-                .'prenom : '        .$user[0]->prenom.'<br>'
-                .'mdp : '           .$user[0]->mdp.'<br>'
-                .'email : '         .$user[0]->email.'<br>'
-                .'telephone : '     .$user[0]->telephone.'<br>'
-                .'adresse : '       .$user[0]->adresse.'<br>'
-                .'datenaissance : ' .$user[0]->datenaissance);
-            //TODO : corect the update
-/*
-            session::set('user', $user);
-
-            if ($user != null) {
-               url::redirect("user/info/".$userToUpdate[0]->id);
-            } else {
-                $errMsg = '<p class="bg-warning">' . MISSING_DATA . '</p>';
-                url::redirect("user");
-            }*/
-
+                if ($user != null) {
+                   url::redirect("user/info/".$userToUpdate[0]->id);
+                } else {
+                    $errMsg = '<p class="bg-warning">' . MISSING_DATA . '</p>';
+                    url::redirect("user");
+                }*/
         } else {
+            /*echo "<br> userToUpdate= ".$userToUpdate[0]->id;
+            echo "<br> activeUser= "   .$activeUser[0]->id . " -- rang= "   .$activeUser[0]->rang;
+            */
             $data['userToUpdate'] = $userToUpdate;
             $data['loginError'] = $error;
             $data['Title'] = USER_RESTORATEUR_FORM;
             $this->view->rendertemplate('header', $data);
-            switch ($activeUser['rang']) {
+            switch ($activeUser[0]->rang) {
                 case 0: //coustomer
                     $this->view->render('fo/clt/clt_menu', $data);
                     break;
@@ -236,40 +236,30 @@ class User extends Controller
         }
     }
 
-    public function displayListRestaurants()
-    {
-        $activeUser = session::get('user');
-
-        $listResto = $this->loadModel('restaurant_Model');
-        $data['List_Resto'] = $listResto->get_Restaurant_By_Id(1);
-
-        $data['Title'] = NAV_List_RESTAURANTS;
-        $this->view->rendertemplate('header', $data);
-        $viewerUser = SESSION::get('user');
-        switch ($viewerUser['rang']) {
-            case 0: //coustomer
-                $this->view->render('fo/clt/clt_menu', $data);
-                $this->view->render('fo/general/view_restorants_list', $data);
-                break;
-            case 2: //user is restorateur
-                $this->view->render('bo/restaurateur/menu_restaurateur', $data);
-                $this->view->render('bo/general/view_restorants_list', $data);
-                break;
-            case 3: //user is the invester
-                $this->view->render('bo/admin/menu_admin', $data);
-                $this->view->render('fo/general/view_restorants_list', $data);
-                break;
-
-        }
-
-        $this->view->rendertemplate('footer', $data);
-    }
-
-
     public function displayListMenus()
     {
 
     }
 
+    public function displayListResrtorants($p=0) {
+    //TODO : finire  restaurant/list
+        $restau= $this->loadModel('Restaurant_Model');
+        // setting up the pagination :
+        $url=DIR.'restaurants/List';
+        $nbr_Rows_To_Display='5';
+        $pages = new an_paginator($url,$nbr_Rows_To_Display,$p);
+        $pages->set_total( count($restau->get_all()));
+        $pages->set_Nav_Tag(NEXT,PREVIOUS);
+        $data['page_links'] = $pages->page_links();
+
+        $data['listResto'] = $restau->get_Restaurants_List( $pages->get_limit() );
+        $data['Title']= RESTORANT_LIST;
+
+        $this->view->rendertemplate('header',$data);
+        $this->view->render('fo/clt/clt_menu',$data);
+        $this->view->render('fo/clt/view_restorants_list',$data);
+        $this->view->rendertemplate('footer',$data);
+
+    }
 
 }

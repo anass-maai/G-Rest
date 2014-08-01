@@ -30,7 +30,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= BO_NAV_RESTAURATEUR ?> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="<?= DIR ?>admin/newRestaurateur"><?= BO_NAV_ADD_RESTAURATEUR ?></a></li>
-            <li><a href="<?= DIR ?>restaurateur/restaurateurList"><?= BO_NAV_List_RESTAURATEUR ?></a></li>
+            <li><a href="<?= DIR ?>admin/restorateurs/List"><?= BO_NAV_List_RESTAURATEUR ?></a></li>
           </ul>
         </li>
       </ul>

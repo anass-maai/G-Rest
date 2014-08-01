@@ -16,14 +16,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="<?= DIR ?>"><?= BO_NAV_HOME ?></a></li>
-        <li><a href="<?= DIR ?>resrtorant/list"><?= FO_MAKE_AN_ORDER ?></a></li>
+        <li><a href="<?= DIR ?>order/step1"><?= FO_MAKE_AN_ORDER ?></a></li>
 
           </ul>
         </li>
         -->
-        
-
-      
       <ul class="nav navbar-nav navbar-right">
         
         <li class="dropdown">

@@ -5,9 +5,7 @@
  */
 
 //if logged ingo to admin front page
-    $user=session::get('user');
-
-
+    $user=$data['userToUpdate'];
 ?>
 
 <div style="max-width: 600px; padding: auto; margin: auto;">
@@ -18,6 +16,9 @@
             <!-- Form Name -->
 
             <legend><?= $data['Title'] ?></legend>
+
+            <input type="hidden"  id="idrestaurant" name="idrestaurant" value="<?= $user[0]->id ?>" >
+
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-sm-4 control-label" for="nom"><?=FORM_INPUT_LASTNAME  ?></label>

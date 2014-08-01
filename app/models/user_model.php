@@ -25,7 +25,7 @@ class User_model extends Model {
         $data = $this->_db->select("select role from " . PREFIX . $this->userDbTab ." where email = :email", array(':email' => $email));
         return $data[0]->role;
     }
-    
+
     public function insertUser($user) {
 
         $user['mdp'] = hash('sha256', $user['mdp']); // On hash le mot de passe en sha256
@@ -33,7 +33,7 @@ class User_model extends Model {
         return $this->_db->lastInsertId('id');
 
     }
-    
+
     public function getUserById($id){
         return $this->_db->select("select * from " . PREFIX . $this->userDbTab ." where id = :id", array(':id' => $id)); 
     }
@@ -56,7 +56,6 @@ class User_model extends Model {
 //--------
         $data['mdp'] = hash('sha256', $data['mdp']); // On hash le mot de passe en sha256
         $this->_db->update(PREFIX.$this->userDbTab,$data, $where);
-
 //--------
     }
     

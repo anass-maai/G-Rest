@@ -1,18 +1,24 @@
 <?php
  //---------------------------------------------------------
  // Welcome
- //--------------------------------------------------------- 
-
-define('WELCOME_TITLE', 'Restorant Management'); 
-define('WELCOME_MSG', 'Bienvenue !'); 
+ //---------------------------------------------------------
+define('WELCOME_MSG', 'Bienvenue !');
 define('GO_FRONTOFFICE', 'Site public'); 
 define('GO_BACKOFFICE', 'Administration');
+
+
+
+define('NEXT', 'Suivent');
+define('PREVIOUS', 'Précédent');
 
 //----------------------------------------------------------
 //General
 //----------------------------------------------------------
 define('GENERAL_List_RESTAURATEUR', 'List restaurants');
 define('GENERAL_List_MENU', 'List menus');
+define('ITEMS_NUMBER', "Nombre d'itemes");
+define('BT_SHOW_ITEMS', 'Afficher les itemes ');
+
 
 //--------- TAB Menu ----------
 define('TAB_LIST_RESTO_NAME', 'Nom du restaurant');
@@ -35,14 +41,20 @@ define('FO_INDEX_BT_CONNECT', 'connecter');
 define('FO_INDEX_BT_CANCEL', 'Anuller');
 define('FO_INDEX_NEW_CUSTOMER', 'Nouveau client!'); 
 
-define('BT_VOID', 'Vider'); 
-define('BT_SUBMIT', 'Enregistrer'); 
-define('BT_UPDATE', 'Modifier');
-define('BT_DELETE', 'Supprimer');
 
 define('CREAT_ACCOUNT_MSG', 'Nouveau sur notre site?? <br /> '
  . 'Inscrivez-vous et déguster les meilleurs plats de la ville!!');
 define('NEWACCOUNT', 'Creer un compte');
+
+//------- BTs ----------------------------------------------
+
+define('BT_VOID', 'Vider');
+define('BT_SUBMIT', 'Enregistrer');
+define('BT_UPDATE', 'Modifier');
+define('BT_DELETE', 'Supprimer');
+define('BT_SHOW_MENUS', 'Afficher les menus');
+define('BT_ORDER', 'Commander');
+define('BT_CHECKOUT', 'Passer la casisse');
 
 /* -- BO -- */
 
@@ -64,6 +76,8 @@ define('BACKOFFICE_INDEX_GO_RESET_PASSWORD', 'Mot de pass oblier??');
  //--------------------------------------------------------- 
 define('NAV_List_RESTAURANTS', 'Nos restaurants');
 define('NAV_List_MENUS', 'Nos menus');
+define('TAX_ORDER', 'Tax');
+define('TTC_ORDER', 'Total a payer');
 
 define('NAV_List_LOGIN', 'Login');
 
@@ -121,8 +135,46 @@ define('FORM_INPUT_PH_RESTO_DISCRIPTION_EN', '');
 define('FORM_INPUT_RESTO_SPECIALITE', 'Specialité');
 define('FORM_INPUT_PH_RESTO_SPECIALITE', '');
 
+define('ADD_NEW_MENU_FOR_RESTORANT', 'Definire un nouveau menu pour ');
+
+define('FORM_INPUT_MENU_NAME_FR', 'Nom du menu en francais ');
+define('FORM_INPUT_PH_MENU_NAME_FR', '');
+define('FORM_INPUT_MENU_NAME_EN', 'Nom du menu en anglais');
+define('FORM_INPUT_PH_MENU_NAME_EN', '');
+
+define('FORM_INPUT_PLAT_NAME_FR', 'Nom du plat en francais ');
+define('FORM_INPUT_PH_PLAT_NAME_FR', '');
+define('FORM_INPUT_PLAT_NAME_EN', 'Nom du plat en anglais');
+define('FORM_INPUT_PH_PALT_NAME_EN', '');
+
+define('FORM_INPUT_PLAT_PRICE', 'Prix');
+define('FORM_INPUT_PH_PALT_PRICE', '');
+define('FORM_INPUT_PLAT_DESCRIPTION_FR', 'descreption du plat en francais');
+define('FORM_INPUT_PH_PALT_DESCRIPTION_FR', '');
+define('FORM_INPUT_PLAT_DESCRIPTION_EN', 'descreption du plat en anglais');
+define('FORM_INPUT_PH_PALT_DESCRIPTION_EN', '');
+
+define('FORM_INPUT_PLAT_NAME', 'Nom du plat ');
+define('FORM_INPUT_PLAT_DESCRIPTION', 'descreption');
+define('MENU_NAME', 'Menu');
+
+define('ADD_NEW_PLAT_TO_MENU', 'Ajouter un nouveau plat au menu');
 
 //---------------------------------------------
 // err messages
 //---------------------------------------------
 define('ERR_MISSING_RESTEURATEUR', 'Un restaurateur doit être assigné au restaurant');
+define('NO_MENU_FOUND', ' Ce menu est en construction !!');
+
+define('NEW_DELEIVER_INFORMATION', 'information de livraison');
+define('FORM_DELIVERY_DATE', ' date de livraison');
+define('FORM_DELIVERY_TIME', ' Heur de livraison');
+define('FORM_DELIVERY_ADDRESS', ' Addresse de livraison');
+
+//-----------------------
+//      front Office
+//-----------------------
+
+define('FO_MAKE_AN_ORDER', 'Faire une commande');
+define('TOTAL_ORDER', 'Grand total');
+define('ORDER_DONE', 'votre commande à été enregistré , veuillez noter le # de la commande : #');

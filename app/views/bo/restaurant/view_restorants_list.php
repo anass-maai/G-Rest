@@ -1,22 +1,15 @@
-<h3> <?= GENERAL_List_RESTAURANTS ?></h3>
-
-
-
-
+<p><h3> <?= GENERAL_List_RESTAURANTS ?></h3></p>
 
 <table class="table table-striped table-condensed col-sm-12">
-    <thead><tr><td></td></tr></thead>
-    <tbody>
+    <thead> <tr>
+        <td class="col-sm-2"><?= TAB_LIST_RESTO_NAME ?> </td>
+        <td class="col-sm-2"><?= TAB_LIST_RESTO_SPECIALITY ?></td>
+        <td class="col-sm-2"><?= TAB_LIST_RESTO_ADDRESS ?></td>
+        <td class="col-sm-2"><?= TAB_LIST_RESTO_PHONE ?></td>
+        <td class="col-sm-2"><?= TAB_LIST_RESTO_RESTORATEUR ?></td>
+        </tr>
+    </thead> <tbody>
     <?php
-    echo('  <thead> <tr>
-                    <td class="col-sm-2">'.TAB_LIST_RESTO_NAME.'</td>
-                    <td class="col-sm-2">'.TAB_LIST_RESTO_SPECIALITY.'</td>
-                    <td class="col-sm-2">'.TAB_LIST_RESTO_ADDRESS.'</td>
-                    <td class="col-sm-2">'.TAB_LIST_RESTO_PHONE.'</td>
-                    <td class="col-sm-2">'.TAB_LIST_RESTO_RESTORATEUR.'</td>
-                    </tr>
-            </thead>');
-
     foreach($data["listResto"] as $Resto) {
         if( session::get("lang")=='fr'){
             $description=$Resto->fr_description;
@@ -31,9 +24,9 @@
                 <td>$Resto->adresse</td>
                 <td>$Resto->telephone</td>
                 <td>$Resto->prenom $Resto->nom</td>
-                <td class='col-sm-3'>
-                    <a href='".DIR."resrtorant/update/$Resto->idrestaurant' class='btn btn-primary' role='button'>". BT_UPDATE ."</a>
-                    <a href='#' class='btn btn-default' role='button'>". BT_DELETE ."</a>
+                <td class='col-sm-3' >
+                    <a id='btUpdate' href='".DIR."restaurants/update/$Resto->idrestaurant' class='btn btn-primary' role='button'>". BT_UPDATE ."</a>
+                    <a id='btDelete' href='".DIR."admin/restaurants/delete/$Resto->idrestaurant' class='btn btn-default' role='button'>". BT_DELETE ."</a>
                 </td>
             </tr>
         ");
@@ -46,9 +39,9 @@
     </tr>
     </tfoot>
 </table>
+
 <?php
 /*
-
         echo("<div class='bs-example'>
                 <div class='row'>");
         foreach($data["listResto"] as $Resto) {

@@ -59,6 +59,27 @@ class An_Paginator{
      */
     private $_path = '?';
 
+    /**
+     * define the Text to display in the Next Lable
+     *
+     * @var String
+     */
+    private $_Next = '?';
+
+    /**
+     * define the Text to display in the Previous Lable
+     *
+     * @var String
+     */
+    private $_Previous = '?';
+
+
+
+
+
+
+
+
 	/**
 	 *  __construct
 	 *
@@ -108,6 +129,27 @@ class An_Paginator{
 		$this->_totalRows = $_totalRows;
 	}
 
+    /**
+     * set_total
+     *
+     * set the text to be displayed in the previuse and next Text
+     *
+     * @var String, String
+     */
+    public function set_Nav_Tag($_Next,$_Previous){
+        $this->_Next = $_Next;
+        $this->_Previous = $_Previous;
+    }
+
+
+
+
+
+
+
+
+
+
 	/**
 	 * get_limit
 	 *
@@ -143,9 +185,9 @@ class An_Paginator{
 		{
 		    $pagination .= "<div class='pagination pagination-centered'><ul class='pagination'>";
 		if ($this->_page > 1)
-		    $pagination.= "<li><a href='".$path."$prev"."$ext'>Previous</a></li>";
+		    $pagination.= "<li><a href='".$path."$prev"."$ext'>$this->_Previous</a></li>";
 		else
-		    $pagination.= "<li><span class='disabled'>Previous</span></li>";
+		    $pagination.= "<li><span class='disabled'>$this->_Previous</span></li>";
 
 		if ($lastpage < 7 + ($adjacents * 2))
 		{
@@ -204,9 +246,9 @@ class An_Paginator{
 		}
 
 		if ($this->_page < $counter - 1)
-		    $pagination.= "<li><a href='".$path."$next"."$ext'>Next</a></li>";
+		    $pagination.= "<li><a href='".$path."$next"."$ext'>$this->_Next</a></li>";
 		else
-		    $pagination.= "<li><span class='disabled'>Next</span></li>";
+		    $pagination.= "<li><span class='disabled'>$this->_Next</span></li>";
 		    $pagination.= "</ul></div>\n";
 		}
 

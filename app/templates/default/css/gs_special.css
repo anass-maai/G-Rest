@@ -1,12 +1,40 @@
 @CHARSET "ISO-8859-1";
 
 
+div.an-row-color-box-line0{
+    border-top:1px solid #ddd;
+    background-color:#f9f9f9;
+    margin: Auto;
+    padding: 5px;
+}
+
+div.an-row-color-box-line1{
+   /* background-color: #fff; */
+    border-top:1px solid #ddd;
+    margin: Auto;
+    padding: 5px;
+    text-align:left ;
+}
+
+
+div.an-row-header{
+    background-color: rgb(180,40,54);
+    border-top:1px solid;
+    margin: Auto;
+    padding: 5px;
+    text-align:left ;
+    color: #fff;
+}
+
 div.gs-callout-info-style-1{
 	min-width:300px; 
 	text-align: center;
 	height: 80px;
 	margin: auto;
 }
+
+
+
 
 div.login-box{
 	max-width:300px; 

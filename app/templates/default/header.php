@@ -35,14 +35,62 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="<?= url::get_template_path() ?>ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?= url::get_template_path() ?>ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?= url::get_template_path() ?>ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?= url::get_template_path() ?>ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="<?= url::get_template_path() ?>ico/apple-touch-icon-57-precomposed.png">
-	
-</head>
-<body style="padding-top: 5px; padding-bottom:5px; ">
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/jquery.js"></script>
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/bootstrap-transition.js"></script>
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/bootstrap-alert.js"></script>
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/bootstrap-modal.js"></script>
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/bootstrap-dropdown.js"></script>
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/bootstrap-scrollspy.js"></script>
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/bootstrap-tab.js"></script>
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/bootstrap-tooltip.js"></script>
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/bootstrap-popover.js"></script>
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/bootstrap-button.js"></script>
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/bootstrap-collapse.js"></script>
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/bootstrap-carousel.js"></script>
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/bootstrap-typeahead.js"></script>
+    <!-- JS Alexi -->
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/tab.js"></script>
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/entrepreneur.js"></script>
 
+    <!-- JS Anass -->
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/ana/formhelper.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <script src="<?= TEMPLATES_REP.'default' ?>/js/bootstrap-touchspin/bootstrap.touchspin.js"></script>
+
+
+
+
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script>
+        $(function() {
+            $( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
+            $( "#dialog" ).dialog({
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+            $( "#opener" ).click(function() {
+                $( "#dialog" ).dialog( "open" );
+            });
+        });
+    </script>
+
+</head>
+
+<body style="padding-top: 5px; padding-bottom:5px; ">
 <div id='divbody' class='container'>
